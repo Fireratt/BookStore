@@ -36,3 +36,79 @@
     transform: rotate(360deg);
   }
 }
+
+div#MainPage1
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image:url("../Source/LoginBackground.png");
+  background-repeat: no-repeat;
+  /* background-size: 100% 100%; */
+}
+div#LoginFile
+{
+  position: relative;
+  margin:auto ; 
+  margin-top: 10%;
+  background-color:rgba(250,255,255, 0.85) ; 
+  width: 250pt ; 
+  padding-top: 10pt ;
+  height: 230pt ; 
+  box-shadow: -20px 16px 12px rgba(193,193,200, 0.60);
+  /* transform: translate(50%,50%); */
+
+  border: 2px solid rgb(92, 89, 89);
+  border-radius: 5%;
+}
+
+.LoginInput
+{
+  font-size: medium ; 
+  border : azure 1px solid ; 
+  border-radius: 3% ; 
+  outline: none;
+  background-color: rgba(244, 251, 255, 0.9);
+}
+.LoginInput:hover
+{
+  border-color: rgb(168, 165, 255) ;
+}
+.LoginInput:focus
+{
+  outline: rgb(168, 165, 255) solid 4px;
+}
+.LoginInput::placeholder
+{
+  font:small italic ;
+  font-family: sans-serif,Arial, Helvetica,;
+}
+#LoginTitle
+{
+  font-family: Courier, monospace;
+}
+
+input#SignIn
+{
+  width: 60%;
+  height: 30pt ;
+  font : medium bold;
+  color: rgb(241, 241, 241);
+  background-color: rgb(37, 0, 0);
+}
+
+a#RegisterLink
+{
+  float: left ;
+  margin-left: 20%;
+  font: small ;
+  color: rgb(2, 2, 38);
+}
+
+a#RegisterLink:visited
+{
+  font: small ;
+  color: rgb(2, 2, 38);
+}

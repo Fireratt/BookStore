@@ -1,0 +1,34 @@
+#BigIconImg
+{
+    height: 75%;
+    width: 75%;
+    /* border-radius: ; */
+    margin-left: 12.5%;
+    margin-top: 30px;
+}
+div#SideBar
+{
+    float: left;
+    width: 10%;
+    background-color: rgba(248, 255, 255, 0.9);
+    height: 100%;
+    position: fixed;
+    border-right: 2px solid grey;
+}
+
+.SideButton
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium ;
+    letter-spacing: 3px;
+    background-color: transparent ;
+    /* border-left: none;
+    border-right: none;
+    border-bottom: none; */
+    border:none ; 
+    margin-bottom: 10px;
+    height: 70px;
+    width: 100%;
+    background-color: rgb(250, 250, 255) ;
+    color: grey ;
+}
