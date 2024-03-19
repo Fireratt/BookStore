@@ -4,6 +4,7 @@ import LoginFile from './component/loginFile';
 import { Route,BrowserRouter,Routes } from 'react-router-dom' ; 
 import Explore from './component/explore';
 import BookDetail from './BookDetail/BookDetail';
+import CartPage from './CartPage/Cart';
 const SideData = [
   {name : "热门好书"} , 
   {name : "最新上市"} , 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/' element={<LoginFile/>}/>
         <Route path='/explore' element={<Explore data={SideData}/>} />
         <Route path='/BookDetail/*' element={<BookDetail data={SideData}/>}/>
+        <Route path='/Cart' element={<CartPage data={SideData}/>}/>
       </Routes>
     </BrowserRouter>
   );

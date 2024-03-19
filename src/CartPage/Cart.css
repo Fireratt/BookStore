@@ -1,0 +1,156 @@
+.CartItem
+{
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-bottom: 80px ;
+
+    width: 90%;
+    height : 200px ; 
+
+    background-color: rgba(230, 237, 238,0.4);
+    border-radius: 30px ;
+    /* padding-bottom: 80px; */
+}
+
+.CartItem_Img
+{
+    float: left;
+    height: 100% ;
+    width: 20% ;
+    object-fit: contain ;
+    margin-left: 5%;
+}
+
+.CartItem_Check
+{
+    float: left;
+    position: relative ;
+    top : +100px ; 
+}
+
+.CartItem_Title
+{
+    float: right;
+
+    letter-spacing: 3px ;
+    font-family: Microsoft Yahei ,STXihei;
+    font-size: larger ;
+    font-weight: bold;
+}
+
+.CartItem_Price
+{
+    clear: right;
+    float: right;
+
+    letter-spacing: 3px ;
+    font-family: Microsoft Yahei ,STXihei;
+    font-size: larger ;
+    font-weight: bold;
+
+    color: red;
+}
+
+.CartItem_Title,.CartItem_Price , .CartItem_RemoveBtn
+{
+    margin-right: 5%;
+    margin-top: 20px ;
+
+}
+
+.CartItem_Remove
+{
+    display: none ;
+}
+
+.CartItem_RemoveBtn
+{
+    clear: right;
+    float: right;
+
+    color: grey;
+
+    cursor: pointer;
+}
+/* CartItem's Style End  */
+/* Below is the Cart's MainPage's elements' style(such as the Total Price and pay button) */
+
+#Cart_Total
+{
+    position: absolute ;
+    right: 5px ;
+    letter-spacing: 3px ;
+    font-family: Microsoft Yahei ,STXihei;
+    font-size: large ;
+    font-weight: bold;
+
+    color: red;
+}
+
+button
+{
+    cursor: pointer;
+}
+
+#Cart_Pay
+{
+    display: none;
+}
+
+#Cart_BottomBar
+{
+    display: block;
+    width: 90% ; 
+    height: 80px;
+    
+    position: fixed;
+    bottom: -20px;
+    left: calc(10% + 3px);
+    z-index: 9999 ;
+    float: right;
+
+
+
+    background-color: rgba(240, 253, 255, 0.9);
+}
+
+#Cart_PayBtn
+{
+    display: block;
+    width: 10% ;
+    height: 20px ;
+    padding-top: 10px;
+
+
+    float: right;
+    position: relative;
+    top:30px ; 
+
+    line-height: 10px;
+    text-align: center;
+    background-color: orange;
+    border-radius: 30px;
+
+    font-size: large ;
+    font-weight: bold;
+    color: rgb(255, 241, 241);
+}
+
+#Cart_PayBtn, #Cart_Total
+{
+    margin-right: 5%;
+}
+
+#Cart_PageEnd
+{
+    display: block;
+    width: 90% ; 
+    height: 80px;
+    padding-top: 10px;
+
+    float: right;
+    position: relative;
+    top:30px ; 
+
+
+}

@@ -29,7 +29,7 @@
 .Detail_Title,.Detail_Price
 {
     letter-spacing: 3px ;
-    font-family: "Microsoft Yahei" "STXihei";
+    font-family: Microsoft Yahei ,STXihei;
     font-size: 30px ;
     font-weight: bold;
 }
@@ -59,7 +59,7 @@
     width: 10%;
     height: 30px ; 
 
-    font-family: "Microsoft Yahei" "STXihei";
+    font-family: Microsoft Yahei ,STXihei;
     font-size: large ;
     color: white ;
 
@@ -75,9 +75,11 @@
     margin-left: calc(40% - 30px);
     margin-right: 30px;
     background-color: orange;
+    border-radius: 20px;
 }
 
 .Detail_Buy
 {
     background-color: red;
+    border-radius: 20px;
 }

@@ -1,0 +1,11 @@
+.ContentBlock
+{
+    position: absolute;
+    right :0 ; 
+    top : calc(10%); 
+    display: block ; 
+    width: 90%;
+    height: 90%;
+    overflow: visible;
+    background-color: transparent ;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import "../TopBar.css"
+import {Link} from "react-router-dom"
 function TopBar()
 {
     return(
@@ -7,11 +8,13 @@ function TopBar()
             <p>
             <img id="Settings" src="/Source/Setting.png" alt="Settings" className="TopButton"/>
             <img id="HeadPortrait" src="/Source/HeadPortrait.png" alt="My head" className="TopButton"/>
-            <img id="Cart" src="/Source/Cart.png" alt="My Cart" className="TopButton"/>
+            <Link to="/Cart">
+                <img id="Cart" src="/Source/Cart.png" alt="My Cart" className="TopButton" />
+            </Link>
             <span id="WelcomeMessage"> Welcome,Firerat! </span>
 
             <a class="TopTextBar" href="/"> 首页 </a>
-            <a class="TopTextBar" href="/explore"> 订单 </a>
+            <Link to="/explore" className="TopTextBar" > 订单 </Link>
             <form id="SearchInput">
                 <p>
                     <input id="SearchBar" type="text" placeholder="搜索"/>
