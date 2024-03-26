@@ -1,0 +1,86 @@
+.OrderUnit_Title
+{
+    letter-spacing: 3px ;
+    font-family: Microsoft Yahei ,STXihei;
+    font-size: larger ;
+    font-weight: bold;
+
+    position: relative;
+    top:10px;
+}
+
+.OrderUnit
+{
+    position: relative ;
+    left:5% ; 
+    width: 88%;
+    height: 200px;
+    margin-top: 50px;
+    padding-left: 1%;
+    border-radius: 20px;
+    background-color: rgba(36, 132, 139, 0.20);
+}
+.OrderUnit_Pic
+{
+    float: left;
+
+    position: relative ;
+    top : 25px ;
+    height: 150px ;
+    width: 20%;
+
+    object-fit: contain;
+}
+.OrderUnit_OrderCode,.OrderUnit_Date
+{
+    float: right;
+
+    margin-left: 3%;
+    margin-right: 3%;
+    color: grey ;
+    font-family: Microsoft Yahei ,STXihei;
+    font-size: small;
+
+
+}
+
+.OrderUnit_Price,.OrderUnit_Paid
+{
+    clear: right;
+    float: right ;
+
+    margin-right: 3%;
+
+    font-family: Microsoft Yahei ,STXihei;
+    color: grey;
+}
+
+.OrderUnit_TruePaid
+{
+    color: red;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.OrderUnit_Service
+{
+    position: absolute;
+    right : 3% ; 
+    bottom: 10px;
+    text-align: center;
+
+    height: 30px;
+    width: 10%;
+    padding-top: 8px;
+
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.OrderUnit_Service:hover
+{
+    cursor: pointer;
+}
