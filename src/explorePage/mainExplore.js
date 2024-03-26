@@ -31,9 +31,6 @@ function MainExplore()
                 <img id="BigScreenPic" src="Source/BigScreenPic.png" alt="TopBook"></img>
             </div>
             <div id="BookStorage">
-                {/* <BookUnit BookName="A Court of Wings and Ruin" 
-                BookUrl="/Source/Books/ACourtofWingsandRuin.jpg"
-                BookPrice="100"/> */}
                 {booksInput}
             </div>
         </div>

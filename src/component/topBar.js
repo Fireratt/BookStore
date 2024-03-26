@@ -13,8 +13,8 @@ function TopBar()
             </Link>
             <span id="WelcomeMessage"> Welcome,Firerat! </span>
 
-            <a class="TopTextBar" href="/"> 首页 </a>
-            <Link to="/explore" className="TopTextBar" > 订单 </Link>
+            <Link class="TopTextBar" to="/explore"> 首页 </Link>
+            <Link to="/orders" className="TopTextBar" > 订单 </Link>
             <form id="SearchInput">
                 <p>
                     <input id="SearchBar" type="text" placeholder="搜索"/>

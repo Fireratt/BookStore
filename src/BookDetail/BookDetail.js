@@ -1,66 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect ,useState} from "react";
 import TopBar from "../component/topBar";
 import SideBar from "../component/sidebar";
-import './BookDetail.css'
-let name = "";
-let value = ""; 
+import './BookDetail.css' ; 
+import '../TopBar.css' ; 
+import '../SideBar.css' ; 
+import {useLocation} from "react-router-dom"
 let jsonData = ""; 
-let nameWithoutSpc = "" ; 
-function initialize(jsonItem)
+function initialize(jsonItem, name,nameWithoutSpc)
 {
     const price = jsonItem['value'] ; 
     const description = jsonItem['description'] ; 
     const author = jsonItem['author'] ; 
     const storage = jsonItem['storage']
     const picURL = '/Source/Books/' + nameWithoutSpc + ".jpg"
-
+// It is bad in REACT frameWork , but it is a calculated state , and the initialize function will calculate it when the state(bookName)change and call useEffect
+// So it is OK to use it I think . 
     document.getElementsByClassName('Detail_Img')[0].src = picURL ; 
-    document.getElementsByClassName('Detail_Title')[0].textContent = name ; 
     document.getElementsByClassName('Detail_Storage')[0].textContent = "库存: " + storage ; 
     document.getElementsByClassName('Detail_Price')[0].textContent = price + "￥" ; 
     document.getElementsByClassName('Detail_Description')[0].textContent = description ; 
     document.getElementsByClassName('Detail_Author')[0].textContent = "作者: " + author ; 
 
 }
-async function readCookie()
+async function readCookie(bookName)
 {
-    const cookieArray = document.cookie.split(';') ; 
-    for(const i of cookieArray)
-    {
-        if(i.split('=')[0] === "BookName")
-        {
-            name = i.split('=')[1] ; 
-        }
-
-        if(i.split('=')[0] === "BookPrice")
-        {
-            value = i.split('=')[1] ; 
-        }
-    }
-    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC" ; 
-    nameWithoutSpc =  name.replace(new RegExp(" ","g"),"") ; 
-    // alert(document.cookie) ; 
-    // read the json to know other information 
-    // const request = new Request('/Source/BookData.json')
+    const nameWithoutSpc =  bookName.replace(new RegExp(" ","g"),"") ; 
     const jsonSource = await fetch('/Source/BookData.json') ; 
     jsonData = await jsonSource.json() ; 
-    // const storage = document.createElement("p") ; 
-    // storage.textContent = jsonData[nameWithoutSpc]["storage"] ; 
-    // storage.id = name + "Storage" ; 
-    // if(!document.getElementById(storage.id))
-    // {
-    //     document.body.appendChild(storage) ; 
-    // }
-    initialize(jsonData[nameWithoutSpc]) ; 
+    initialize(jsonData[nameWithoutSpc],bookName,nameWithoutSpc) ; 
 
 }
 function BookDetail(props)
 {
+    const para = useLocation() ; 
+    let [bookValue,setBookValue] = useState(para.state.BookValue) ; 
+    let [bookName,setBookName] = useState(para.state.BookName) ; 
     useEffect(()=>
     {
-        readCookie() ; 
+        readCookie(bookName) ; 
     }
-    ,[name] 
+    ,[bookName]
     ) ; 
     // All The part will be initialized in the function "Initialize"
     return(
@@ -69,7 +48,7 @@ function BookDetail(props)
                 <SideBar data = {props.data}/> 
                 <img src="" alt="图书图片" className = "Detail_Img"/>           
                 <div className = "Detail_TextPage">
-                    <p className="Detail_Title"> </p>
+                    <p className="Detail_Title">{bookName} </p>
                     <p className="Detail_Author Detail_Text"></p>
 
                     <p className="Detail_PriceLine Detail_Text">
