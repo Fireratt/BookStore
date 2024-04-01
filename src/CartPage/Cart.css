@@ -51,10 +51,11 @@
     color: red;
 }
 
-.CartItem_Title,.CartItem_Price , .CartItem_RemoveBtn
+.CartItem_Title,.CartItem_Price , .CartItem_RemoveBtn,.CartItem_AmountForm
+
 {
     margin-right: 5%;
-    margin-top: 20px ;
+    margin-top: 10px ;
 
 }
 
@@ -152,5 +153,49 @@ button
     position: relative;
     top:30px ; 
 
+
+}
+
+.CartItem_OperateAmount
+{
+    cursor: pointer;
+    display: block;
+
+    background-color: rgba(255, 213, 0,0.5) ; 
+    height: 30px;
+    width: 33%;
+    float: left;
+
+    font-size: large;
+    font-weight: bolder;
+}
+
+.CartItem_AmountForm
+{
+    display: block;
+    width: 10%;
+    height: 30px ; 
+    line-height: 30px;
+    background-color: rgb(255, 255, 255);
+    /* margin-left: 45%; */
+    /* position: relative;
+    top:85px ;  */
+    clear: right;
+    float: right;
+}
+
+.CartItem_Amount
+{
+
+
+    float: left;
+
+    width: 33%;
+    display: block;
+}
+
+.CartItem_Amount, .CartItem_OperateAmount
+{
+    text-align: center;
 
 }

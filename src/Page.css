@@ -1,0 +1,58 @@
+
+.InPage_Search
+{
+    width: 70%;
+    height: 30px;
+    padding-left: 1%;
+    border: none;
+
+}
+.InPage_Search:focus,.InPage_Search:active
+{
+    border: none;
+    /* 清除默认边框使用outline */
+    outline: none;          
+}
+.InPage_SearchSubmit
+{
+    display: none;
+}
+
+.InPage_SearchBtn
+{
+    text-align: center;
+    font-size: large;
+    color: white;
+    background-color: orange ;  
+    height: 30px;
+     line-height: 30px;             /* 实现垂直居中的方式：调整行高 */
+
+    width: 20%;
+    float: right;
+}
+
+.InPage_SearchForm
+{
+    display: block;
+    width: 30%;
+    margin-left: 35%;
+    height: 30px;
+    margin-top: 30px;
+    padding-left: 1%;
+    border: 3px solid black;
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.Page_Title
+{
+    font-size: 30px;
+    font-family: Microsoft Yahei ,STXihei;
+
+    letter-spacing: 3px;
+    font-weight: bolder;
+
+    text-align:left;
+    padding-left: 5%;
+}

@@ -3,6 +3,7 @@ import SideBar from "../component/sidebar";
 import TopBar from "../component/topBar";
 import "../css/ContentBlock.css" ; 
 import "./Cart.css" ; 
+import "../Page.css" ; 
 import CartItem from "./CartItem";
 function processingPay(event)
 {
@@ -30,6 +31,14 @@ function CartPage(props)
             <TopBar/>
             <SideBar data = {props.data}/> 
             <div className="ContentBlock">
+                <p className="Page_Title"> 购物车 </p>
+                <form>
+                    <div id = "Cart_SearchForm" className = "InPage_SearchForm">
+                        <input type="text" id="Cart_Search" className = "InPage_Search" placeholder="搜索"/>
+                        <input type="submit" id="Cart_SearchSubmit" className = "InPage_SearchSubmit"/>
+                        <label htmlFor="Cart_SearchSubmit" id="Cart_SearchBtn" className = "InPage_SearchBtn"> 搜索！ </label>
+                    </div>
+                </form>
                 <CartItem  name="FourthWing" price="123" checked={false} changeFun = {CalcPrice}/>
                 <CartItem  name="IronFlame" price="122" checked={false} changeFun = {CalcPrice}/>
                 <CartItem  name="IronFlame" price="122" checked={false} changeFun = {CalcPrice}/>

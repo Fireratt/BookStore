@@ -9,7 +9,7 @@ function OrderUnit(props)
         <div id = {props.code} className="OrderUnit">
             <img className="OrderUnit_Pic" src={picSource}/>
             <p className="OrderUnit_Head">
-                <span className="OrderUnit_Title"> {props.name}</span>
+                <span className="OrderUnit_Title"> {props.name} <span className="OrderUnit_Amount">x{props.amount}</span></span>
                 <span className="OrderUnit_Date"> {props.date} </span>
                 <span className="OrderUnit_OrderCode"> 订单编号：{props.code} </span>
             </p>

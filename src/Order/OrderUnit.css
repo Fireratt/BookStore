@@ -84,3 +84,9 @@
 {
     cursor: pointer;
 }
+
+.OrderUnit_Amount
+{
+    color: grey;
+    font-size: small;
+}
