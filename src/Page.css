@@ -56,3 +56,138 @@
     text-align:left;
     padding-left: 5%;
 }
+
+.Page_Btn
+{
+    text-align: center;
+    
+    display: block;
+    height: 30px;
+    width: 10%;
+    padding-top: 8px;
+
+    background-color: rgba(224, 255, 255, 0.9);
+    border: none;
+    border-radius: 20px;
+
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#Information_SideBar
+{
+    position: absolute ;
+    left: 0;
+    top: 15%;
+    /* background-color: green; */
+    background-color: rgba(250, 250, 255, 1);
+    margin-left: 5%;
+
+    width: 10%;
+    height: 85%;
+}
+
+#Information_View
+{
+    position: absolute;
+    left:20% ; 
+    width: 80%;
+
+}
+
+.Information_SideBtn
+{
+    height: 50px ; 
+    line-height: 50px;
+    text-align: center ;
+    margin-top: 10px;
+    color: grey;
+
+    /* border: 1px solid black ;  */
+    cursor: pointer;
+
+}
+
+.EditableText
+{
+    padding-left: 10%;
+    font-size: medium ; 
+    font-family: Microsoft Yahei ,STXihei;
+}
+
+.EditableText_Edit
+{
+    font-size: medium;
+    margin-block-start: calc(1em - 1px ) ;
+    margin-block-end: calc(1em - 1px );
+    font-family: Microsoft Yahei ,STXihei;
+    border: 1px solid black;
+}
+
+.Information_Tag
+{
+    font-size: large ; 
+    font-family: Microsoft Yahei ,STXihei;
+
+    font-weight: bold;
+
+    text-align:left;
+
+}
+
+#Information_UploadHead
+{
+    display: none;
+}
+
+#Information_HeadPortrait
+{
+    display: block;
+    width: 80px ;
+    height: 80px;
+    border-radius: 50%;
+    /* background-color: rgba(0,0,0,0.8); */
+    object-fit: contain;
+}
+
+#Information_Filter
+{
+    text-align: center ; 
+    position: absolute;
+    line-height: 80px ;
+    display: block;
+    width: 80px ;
+    height: 80px;
+    border-radius: 50%;
+    color: white;
+    font-weight: lighter;
+    background-color: rgba(0,0,0,0.4);
+    
+}
+
+#Information_UploadLabel
+{
+    display: block;
+    width: 80px ;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.Page_Submit
+{
+    display: none;
+}
+
+.Information_InputForm
+{
+    width: 50%;
+    height: 50px;
+    margin-bottom: 30px;
+
+    border-radius: 30px;
+    padding-left: 5%;
+
+    border: 1px solid grey;
+}

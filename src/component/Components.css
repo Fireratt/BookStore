@@ -1,0 +1,12 @@
+.Component_Block
+{
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-bottom: 80px ;
+
+    width: 90%;
+    height : 200px ; 
+
+    background-color: rgba(230, 237, 238,0.4);
+    border-radius: 30px ;
+}

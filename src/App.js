@@ -6,6 +6,7 @@ import Explore from './component/explore';
 import BookDetail from './BookDetail/BookDetail';
 import CartPage from './CartPage/Cart';
 import OrderPage from './Order/order';
+import InformationPage from './View/Information';
 const SideData = [
   {name : "热门好书"} , 
   {name : "最新上市"} , 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/BookDetail/*' element={<BookDetail data={SideData}/>}/>
         <Route path='/Cart' element={<CartPage data={SideData}/>}/>
         <Route path='/Orders' element={<OrderPage data={SideData}/>}/>
+        <Route path='/Information' element={<InformationPage data={SideData}/>}/>
       </Routes>
     </BrowserRouter>
   );

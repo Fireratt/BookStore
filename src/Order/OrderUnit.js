@@ -1,6 +1,7 @@
 import React from "react";
 import removeSpc from "../tools/removeSpc";
 import "./OrderUnit.css"
+import "../Page.css"
 function OrderUnit(props)
 {
     const nameWithoutSpc = removeSpc(props.name) ; 
@@ -20,7 +21,7 @@ function OrderUnit(props)
                 实付款：
                 <span className="OrderUnit_TruePaid">{props.paid}￥ </span>
             </p>
-            <label className="OrderUnit_Service"> 申请售后服务 </label>
+            <label className="OrderUnit_Service Page_Btn"> 申请售后服务 </label>
         </div>
     )
 }
