@@ -7,6 +7,7 @@ import EditableText from "../component/editableText";
 import InformationManage from "./InformationManage";
 import ChangePWPage from "./ChangePW";
 import LocationManage from "./LocationManage";
+import AfterService from "./AfterService";
 function InformationPage(props)
 {
     let [displaying,setDisplaying] = useState(0) ;  // use to change the tag of this page ; 
@@ -22,6 +23,11 @@ function InformationPage(props)
         {Location : "东川路800号"} , 
         {Location : "东川路800号"} , 
         {Location : "东川路800号"} , 
+    ]
+    const afterService = [
+        {Code : 100 , Name : "IronFlame" , Reason : "书本破损" , Status : 0 , Pic : "/Source/Books/IronFlame.jpg"} , 
+        {Code : 101 , Name : "IronFlame" , Reason : "书本破损" , Status : 1 , Pic : "/Source/Books/IronFlame.jpg"} , 
+        {Code : 102 , Name : "IronFlame" , Reason : "书本破损" , Status : 2 , Pic : "/Source/Books/IronFlame.jpg"} , 
     ]
     return(
         <div id ="InformationPage">
@@ -52,7 +58,7 @@ function InformationPage(props)
                     {displaying===0 && <InformationManage data = {data}/>}
                     {displaying===1 && <ChangePWPage/>}
                     {displaying===2 && <LocationManage data = {location}/>}
-                    {displaying===3 && <InformationManage data = {data}/>}
+                    {displaying===3 && <AfterService data = {afterService}/>}
                 </div>
             </div>
         </div>

@@ -51,6 +51,22 @@
 {
     border: 3px solid black;
 }
+.Component_Annotation
+{
+    font-size: small;
+    font-family: Microsoft Yahei ,STXihei;
+    color: grey; 
+}
+.Component_Pic
+{
+    float: left;
+    display: block;
+    width: 20%;
+    height: 150px;
+    
+    margin-top: 25px;
+    object-fit: contain;
+}
 /* Shared property end */
 .Location_Edit
 {
@@ -75,3 +91,40 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
+/* EditableText and buttonEditText End */
+.AfterService_ID
+{
+    float: right;
+
+    margin-right: 3%;
+}
+
+.AfterService_Title
+{
+    float: right;
+
+    display: block;
+    width: 60%;
+    text-align: right;
+    padding-right: 10%;
+
+    font-size: larger;
+    font-weight: bold;
+    font-family: Microsoft Yahei ,STXihei;
+
+}
+
+.AfterService_Reason , .AfterService_Status
+{
+    clear: right;
+    float: right;
+
+    margin-right: 3%;
+
+}
+
+.AfterService_Status
+{
+    color: red;
+}
+

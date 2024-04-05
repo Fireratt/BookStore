@@ -14,27 +14,6 @@ function Location(props)
     {
         setLocation(event.currentTarget.value) ; 
     }
-    // return(
-    //     <div className="locationBlock Component_Block">
-    //         {
-    //             !isEdit && 
-    //             <p className="Location_Text Component_TextBlock">
-    //                 {location}
-    //             </p> 
-    //         }
-    //         {
-    //             isEdit && 
-    //             <input type="text" className="Location_Text Component_TextEdit" 
-    //                 value={location}
-    //                 onChange={changeContent}
-    //             />
-    //         }
-    //         <label className="Page_Btn Location_Edit" onClick={changeEdit}> 
-    //             {!isEdit && "编辑"} 
-    //             {isEdit && "保存"} 
-    //         </label>
-    //     </div>
-    // )
     return(
         <ButtonEdit str = {location}/>
     )
