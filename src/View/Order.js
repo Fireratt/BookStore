@@ -1,7 +1,7 @@
 import React from "react";
 import TopBar from "../component/topBar";
 import SideBar from "../component/sidebar";
-import OrderUnit from "./OrderUnit";
+import OrderUnit from "../component/OrderUnit";
 import "../Page.css" ; 
 
 function OrderPage(props)

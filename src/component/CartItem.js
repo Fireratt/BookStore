@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Cart.css"
+import "../View/Cart.css"
 
 
 function RemoveItem(event)

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import SideBar from "../component/sidebar";
 import TopBar from "../component/topBar";
-import "../css/ContentBlock.css" ; 
+import "../ContentBlock.css" ; 
 import "./Cart.css" ; 
 import "../Page.css" ; 
-import CartItem from "./CartItem";
+import CartItem from "../component/CartItem";
 function processingPay(event)
 {
     const value = document.getElementById("Cart_Total").dataset.total ; 

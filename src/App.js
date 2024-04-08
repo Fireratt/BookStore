@@ -2,10 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import LoginFile from './component/loginFile';
 import { Route,BrowserRouter,Routes } from 'react-router-dom' ; 
-import Explore from './component/explore';
-import BookDetail from './BookDetail/BookDetail';
-import CartPage from './CartPage/Cart';
-import OrderPage from './Order/order';
+import Explore from './View/Explore';
+import BookDetail from './View/BookDetail';
+import CartPage from './View/Cart';
+import OrderPage from './View/Order';
 import InformationPage from './View/Information';
 const SideData = [
   {name : "热门好书"} , 

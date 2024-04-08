@@ -1,7 +1,7 @@
 import React from "react";
-import SideBar from "./sidebar";
-import TopBar from "./topBar";
-import MainExplore from "../explorePage/mainExplore";
+import SideBar from "../component/sidebar";
+import TopBar from "../component/topBar";
+import MainExplore from "./mainExplore";
 function Explore(props)
 {
     return(

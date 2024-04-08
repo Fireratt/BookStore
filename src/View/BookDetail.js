@@ -33,8 +33,7 @@ async function readCookie(bookName)
 function BookDetail(props)
 {
     const para = useLocation() ; 
-    let [bookValue,setBookValue] = useState(para.state.BookValue) ; 
-    let [bookName,setBookName] = useState(para.state.BookName) ; 
+    let [bookName] = useState(para.state.BookName) ; 
     useEffect(()=>
     {
         readCookie(bookName) ; 

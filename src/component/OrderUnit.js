@@ -8,7 +8,7 @@ function OrderUnit(props)
     const picSource = "/Source/Books/" + nameWithoutSpc + ".jpg" ; 
     return(
         <div id = {props.code} className="OrderUnit">
-            <img className="OrderUnit_Pic" src={picSource}/>
+            <img className="OrderUnit_Pic" src={picSource} alt = {nameWithoutSpc}/>
             <p className="OrderUnit_Head">
                 <span className="OrderUnit_Title"> {props.name} <span className="OrderUnit_Amount">x{props.amount}</span></span>
                 <span className="OrderUnit_Date"> {props.date} </span>

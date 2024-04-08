@@ -1,9 +1,9 @@
-import React, { useRef, useState ,useEffect} from "react";
+import React, {  useState ,useEffect} from "react";
 import AfterServiceUnit from "../component/AfterServiceUnit";
 function AfterService(props)
 {
     let data = props.data ; 
-    let [classifying , setClassify] = useState(0) ; // -1  : display all ; 0 : display judging ; 1 : finished ; 2 : Failed
+    let [classifying , setClassify] = useState(-1) ; // -1  : display all ; 0 : display judging ; 1 : finished ; 2 : Failed
     const changeClassify = (event)=>
     {
         setClassify(parseInt(event.currentTarget.dataset.tag)) ; 
@@ -13,7 +13,8 @@ function AfterService(props)
         let btns = document.getElementsByClassName("AfterServicePage_Btn") ; 
         for(let i of btns)
         {
-            if(i.dataset.tag == classifying)
+            // dataset's data is all-string , even when you set it using a integer
+            if(parseInt(i.dataset.tag) === classifying)
             {
                 i.style.backgroundColor = "Salmon" ; 
             }

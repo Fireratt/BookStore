@@ -1,5 +1,5 @@
 import React from "react";
-import BookUnit from "./bookUnit";
+import BookUnit from "../component/bookUnit";
 import "../mainExplore.css"
 
 function MainExplore()
