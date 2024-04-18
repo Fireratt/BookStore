@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import EditableText from "../component/editableText";
-import "../Page.css"
+import "./Page.css"
 function InformationManage(props)
 {
     const data = props.data ; 

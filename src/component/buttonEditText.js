@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Components.css"
-import "../Page.css"
+import "../View/Page.css"
 function ButtonEdit(props)
 {
     let [str,setLocation] = useState(props.str) ; 

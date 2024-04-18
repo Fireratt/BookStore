@@ -1,8 +1,8 @@
 import React,{useState} from "react";
 import TopBar from "../component/topBar";
 import SideBar from "../component/sidebar";
-import "../ContentBlock.css"
-import "../Page.css"
+import "./ContentBlock.css"
+import "./Page.css"
 import InformationManage from "./InformationManage";
 import ChangePWPage from "./ChangePW";
 import LocationManage from "./LocationManage";

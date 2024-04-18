@@ -2,8 +2,6 @@ import React, { useEffect ,useState} from "react";
 import TopBar from "../component/topBar";
 import SideBar from "../component/sidebar";
 import './BookDetail.css' ; 
-import '../TopBar.css' ; 
-import '../SideBar.css' ; 
 import {useLocation} from "react-router-dom"
 let jsonData = ""; 
 function initialize(jsonItem, name,nameWithoutSpc)

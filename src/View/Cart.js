@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import SideBar from "../component/sidebar";
 import TopBar from "../component/topBar";
-import "../ContentBlock.css" ; 
+import "./ContentBlock.css" ; 
 import "./Cart.css" ; 
-import "../Page.css" ; 
+import "./Page.css" ; 
 import CartItem from "../component/CartItem";
 function processingPay(event)
 {

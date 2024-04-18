@@ -1,6 +1,6 @@
 import React from "react";
 import BookUnit from "../component/bookUnit";
-import "../mainExplore.css"
+import "./mainExplore.css"
 
 function MainExplore()
 {
