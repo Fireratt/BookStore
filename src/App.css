@@ -90,16 +90,22 @@ div#LoginFile
   font-family: Courier, monospace;
 }
 
-input#SignIn
+#SignIn
 {
+  display: block;
+  margin-left: 20%;
   width: 60%;
-  height: 30pt ;
+  height: 40px ;
   font : medium bold;
   color: rgb(241, 241, 241);
   background-color: rgb(37, 0, 0);
+
+  line-height: 40px;
+
+  cursor: pointer;
 }
 
-a#RegisterLink
+#RegisterLink
 {
   float: left ;
   margin-left: 20%;
@@ -107,8 +113,19 @@ a#RegisterLink
   color: rgb(2, 2, 38);
 }
 
-a#RegisterLink:visited
+#RegisterLink:visited
 {
   font: small ;
   color: rgb(2, 2, 38);
+}
+.Login_Notice
+{
+  display: block;
+  width: 60% ;
+  margin-left: 20%;
+  
+  color: red;
+  font-family: Courier, monospace;
+  font-size: small ;
+  font-weight: bold ;
 }

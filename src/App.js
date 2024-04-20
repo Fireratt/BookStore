@@ -16,12 +16,15 @@ const SideData = [
   {name : "古代名著"} , 
 
 ]
-
+const userData = [
+  {Account : "Fireratt" , Pwd : "123456"} , 
+  {Account : "Fireratt2" , Pwd : "1234567"} , 
+]
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LoginFile/>}/>
+        <Route path='/' element={<LoginFile data={userData}/>}/>
         <Route path='/explore' element={<Explore data={SideData}/>} />
         <Route path='/BookDetail/*' element={<BookDetail data={SideData}/>}/>
         <Route path='/Cart' element={<CartPage data={SideData}/>}/>
