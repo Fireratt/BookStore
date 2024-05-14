@@ -7,6 +7,8 @@ import '../TopBar.css' ;
 import '../SideBar.css' ; 
 import {useLocation} from "react-router-dom"
 import { getPayInfo, submitOrder } from "../Service/pay";
+import { getBook } from "../Service/book"
+import { addCart } from "../Service/cart";
 let jsonData = ""; 
 function initialize(jsonItem, name,nameWithoutSpc)
 {
@@ -25,28 +27,19 @@ function initialize(jsonItem, name,nameWithoutSpc)
     document.getElementsByClassName('Detail_Author')[0].textContent = "作者: " + author ; 
 
 }
-async function readCookie(bookName)
+async function readCookie(bookName , book_id)
 {
     const nameWithoutSpc =  removeSpc(bookName) ; 
-    // const jsonSource = await fetch('/Source/BookData.json') ; 
-    // get the json from backend
-    const url = 'http://localhost:8080/Book' + "?Name=" + nameWithoutSpc + "&id=1" ; 
-    // const jsonSource = await fetch(url , 
-    // const url = 'localhost:8080/Book' + "?Name=" + "ACourtofWingsandRuin" ; 
     
     let jsonSource  ; 
-    fetch(url , 
-    {
-        method:"GET" , 
-        // body : JSON.stringify({Name: nameWithoutSpc , id : 1}) ,
-        credentials : 'include' 
-    })
-    .then(data=>data.json().then(
-                (result)=>
+    getBook(book_id)
+    .then(
+            (result)=>
                 {
                     jsonData = result ;
+                    console.info(JSON.stringify(jsonData)) ; 
                     initialize(jsonData,bookName,nameWithoutSpc) ; 
-                }))
+                })
     .catch((err) =>     
     {
         alert(err) ; 
@@ -59,9 +52,10 @@ function BookDetail(props)
 {
     const para = useLocation() ; 
     let [bookName] = useState(para.state.BookName) ; 
+    let [book_id,setBookId] = useState(para.state.book_id) ; 
     useEffect(()=>
     {
-        readCookie(bookName) ; 
+        readCookie(bookName , book_id) ; 
     }
     ,[bookName]
     ) ; 
@@ -77,7 +71,24 @@ function BookDetail(props)
         if(window.confirm("请确认订单:\n" + JSON.stringify(paidItem)))
             submitOrder(paidItem) ; 
     }
-
+    function handleAddCart()
+    {
+        addCart(book_id).then((Response)=>
+        {
+            console.info(Response) ; 
+            if(Response.State == "true")
+            {
+                alert("AddCart Success!")
+            }
+            else
+            {
+                alert("AddCart Failed")
+            }
+        }).catch((err)=>
+        {
+            alert(err ) ; 
+        })
+    }
     return(
             <div className="BookDetail">
                  <TopBar/>
@@ -97,7 +108,7 @@ function BookDetail(props)
                     <p className="Detail_Description "> </p>
                 </div>
                 <p className="Detail_Btn">
-                    <button className="Detail_AddCart"> 加入购物车 </button>
+                    <button className="Detail_AddCart" onClick={handleAddCart}> 加入购物车 </button>
                     <button className = "Detail_Buy" onClick={handlePaid}> 马上购买 </button>
                 </p>
             </div>

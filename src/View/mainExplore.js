@@ -1,29 +1,24 @@
-import React from "react";
+import {React , useEffect, useState} from "react";
 import BookUnit from "../component/bookUnit";
 import "../mainExplore.css"
-
+import {getBookList} from "../Service/book"
 function MainExplore()
 {
-    const books = [
-        {BookName :  "If Only I Had Told Her" , 
-        BookPrice: "120" ,} , 
-
-        {BookName :  "A Court of Wings and Ruin" , 
-        BookPrice: "125" ,} , 
-
-        {BookName :  "How to Catch a Leprechaun" , 
-        BookPrice: "124" ,} , 
-
-        {BookName :  "Fourth Wing" ,
-        BookPrice: "123" ,} , 
-
-        {BookName :  "Iron Flame" , 
-        BookPrice: "122" ,} , 
-
-        {BookName :  "Scientific Healing Affirmation" , 
-        BookPrice: "121" ,} , 
-    ]
-    const booksInput =  books?.map((book)=><BookUnit BookName={book.BookName} BookPrice={book.BookPrice}/>) ; 
+    let [booksInput,setBooksInput] = useState(false) ; 
+    let books ; 
+    useEffect(()=>
+    {
+        getBookList().then((response)=>
+        {
+            books = response ; 
+            booksInput =  books?.map((book)=><BookUnit id = {book.Book_Id} BookName={book.Name} BookPrice={book.Price}/>) ; 
+            setBooksInput(booksInput) ;         // trigger redraw.
+            console.log(books) ; 
+        }).catch((err)=>
+        {
+            console.log(err) ; 
+        })
+    },[]) ; 
 
     return(
         <div id="MainExplore">

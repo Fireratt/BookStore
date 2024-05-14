@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , Link} from 'react-router-dom'
+import { confirmLogin } from "../Service/login";
 const Notice = [
     "The Account Cant be Empty!" , 
     "The PassWord Cant be Empty!" , 
@@ -27,18 +28,32 @@ function LoginFile(props)
             setPwdEmpty(true) ; 
             return ;
         }
-        if(
-            props.data.find((obj)=>
-        {
-            return (obj.Account === userName && obj.Pwd === userPwd) ;
-        }))
-        {
-            navigate('/explore') ; 
-        }
-        else
-        {
-            setError(1) ; 
-        }
+        // if(
+        //     props.data.find((obj)=>
+        // {
+        //     return (obj.Account === userName && obj.Pwd === userPwd) ;
+        // }))
+        // {
+        //     navigate('/explore') ; 
+        // }
+        // else
+        // {
+        //     setError(1) ; 
+        // }
+        // goto the backEnd database to find the user info to confirm login
+        confirmLogin(userName,userPwd).then(
+            (response)=>
+            {
+                if(response.State=="Failed")
+                {
+                    setError(1) ; 
+                }
+                else
+                {
+                    navigate('/explore') ; 
+                }
+            }
+        ) ; 
     }
     function handleAccount(event)
     {
@@ -74,7 +89,7 @@ function LoginFile(props)
 
                 </p>
                 {pwdError && <p className="Login_Notice"> {Notice[2]} </p>}
-                <a href="https://oc.sjtu.edu.cn/" id="RegisterLink">Register Now!</a>
+                <Link to="/Register" id="RegisterLink">Register Now!</Link>
                 </form>
             </div>
         </div>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../component/sidebar";
 import TopBar from "../component/topBar";
 import "../ContentBlock.css" ; 
 import "./Cart.css" ; 
 import "../Page.css" ; 
 import CartItem from "../component/CartItem";
+import { getCartList } from "../Service/cart";
 function processingPay(event)
 {
     const value = document.getElementById("Cart_Total").dataset.total ; 
@@ -26,6 +27,25 @@ function CartPage(props)
         }
         setSum(summ) ; 
     }
+    let [bookList,setList] = useState([]) ; 
+    let [bookComponents,setComponents] = useState([]) ; 
+    useEffect(
+        ()=>
+        {
+            getCartList().then(
+                (Response)=>
+                {
+                    console.log(Response) ; 
+                    bookList = Response ; 
+                    setList(bookList) ; 
+                    bookComponents = bookList?.map((unit)=>
+                        <CartItem bookid={unit.bookId} name={unit.bookName} price={unit.bookPrice} checked={false} changeFun = {CalcPrice}/>
+                    ) ; 
+                    setComponents(bookComponents) ; 
+                    console.log("BookList:",bookComponents) ; 
+                }
+            )
+        } , [])
     return(
         <div>
             <TopBar/>
@@ -39,11 +59,7 @@ function CartPage(props)
                         <label htmlFor="Cart_SearchSubmit" id="Cart_SearchBtn" className = "InPage_SearchBtn"> 搜索！ </label>
                     </div>
                 </form>
-                <CartItem  name="FourthWing" price="123" checked={false} changeFun = {CalcPrice}/>
-                <CartItem  name="IronFlame" price="122" checked={false} changeFun = {CalcPrice}/>
-                <CartItem  name="IronFlame" price="122" checked={false} changeFun = {CalcPrice}/>
-                <CartItem  name="IronFlame" price="122" checked={false} changeFun = {CalcPrice}/>
-                <CartItem  name="IronFlame" price="122" checked={false} changeFun = {CalcPrice}/>
+                { bookComponents }
                 <p id="Cart_PageEnd"> </p>
                 <p id="Cart_BottomBar"> 
                     <span id="Cart_Total" data-total="0"> 总金额: {sum}元 </span>

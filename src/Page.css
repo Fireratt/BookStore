@@ -191,3 +191,10 @@
 
     border: 1px solid grey;
 }
+
+.warning
+{
+    color: red;
+    font-family: Microsoft Yahei ,STXihei;
+    font-weight: bold;
+}

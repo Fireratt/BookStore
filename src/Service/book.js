@@ -1,10 +1,18 @@
 import React from "react";
 import { BACKEND_URL,getJson } from "./common";
 export const BOOK_URL = "/book" ; 
-export async function getBook(bookName)
+export const BOOKLIST_URL = "/booklist"
+export async function getBook(book_id)
 {
     let url = BACKEND_URL + BOOK_URL ;
     // pass the url parameter .
-    url = url + (`?Name=${bookName}`) ;
+    url = url + `?id=${book_id}` ;
+    return getJson(url) ; 
+}
+
+export async function getBookList(page = 1)
+{
+    let url = BACKEND_URL + BOOKLIST_URL ;
+    // pass the url parameter .
     return getJson(url) ; 
 }

@@ -51,7 +51,8 @@
     width: 50%;
     margin: none ;
     font-weight: bolder ;
-
+    
+    word-break: break-all;
 }
 .BookPrice
 {

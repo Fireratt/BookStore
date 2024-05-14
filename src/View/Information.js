@@ -7,9 +7,12 @@ import InformationManage from "./InformationManage";
 import ChangePWPage from "./ChangePW";
 import LocationManage from "./LocationManage";
 import AfterService from "./AfterService";
+
+import { getUserInfo ,editUserInfo} from "../Service/user";
 function InformationPage(props)
 {
     let [displaying,setDisplaying] = useState(0) ;  // use to change the tag of this page ; 
+
     const data = {
         Name : "Firerat" ,
         Number : 54749110  , 
@@ -18,6 +21,7 @@ function InformationPage(props)
         Date : "1970/1/1"  , 
         Head : "/Source/HeadPortrait.png"
     }
+
     const location = [
         {Location : "东川路800号"} , 
         {Location : "东川路800号"} , 
