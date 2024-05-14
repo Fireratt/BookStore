@@ -1,4 +1,4 @@
-import {React , useState} from "react";
+import {React , useEffect, useState} from "react";
 import TopBar from "../component/topBar";
 import SideBar from "../component/sidebar";
 import OrderUnit from "../component/OrderUnit";
@@ -17,22 +17,26 @@ function OrderPage(props)
     let data ; 
     // make orderlist a state , when get the response , it can trigger redraw . 
     let [OrderList,setOrderList] = useState(false); 
-    getOrderList().then(
-        (response)=>
-        {
-            data = response ;
-            // trigger the redraw
-            setOrderList(data?.map((unit)=><OrderUnit name = {unit.BookName} 
-            price = {unit.Price} 
-            paid = {unit.Paid}
-            date = {unit.Date}
-            code = {unit.Code}
-            amount = {unit.Amount}/>)) ; 
-        }
-    ).catch((err)=>
+    useEffect(()=>
     {
-        console.log(err) ; 
-    })
+        getOrderList().then(
+            (response)=>
+            {
+                console.log(response) ; 
+                data = response ;
+                // trigger the redraw
+                setOrderList(data?.map((unit)=><OrderUnit items = {unit.orderItems} 
+                price = {unit.totalPrice} 
+                date = {unit.date}  
+                code = {unit.order_id}
+                />)) ; 
+            }
+        ).catch((err)=>
+        {
+            console.log(err) ; 
+        })
+     } , []
+    )
     return(
         <div id = "OrderPage">
             <TopBar/>
