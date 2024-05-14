@@ -2,7 +2,7 @@ import {React , useState} from "react";
 import TopBar from "../component/topBar";
 import SideBar from "../component/sidebar";
 import OrderUnit from "../component/OrderUnit";
-import "../Page.css" ; 
+import "./Page.css" ; 
 import { getOrderList } from "../Service/order";
 
 function OrderPage(props)

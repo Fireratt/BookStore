@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "../component/sidebar";
 import TopBar from "../component/topBar";
-import "../ContentBlock.css" ; 
+import "./ContentBlock.css" ; 
 import "./Cart.css" ; 
-import "../Page.css" ; 
+import "./Page.css" ; 
 import CartItem from "../component/CartItem";
 import { getCartList } from "../Service/cart";
 function processingPay(event)

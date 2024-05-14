@@ -1,6 +1,6 @@
 import {React , useEffect, useState} from "react";
 import BookUnit from "../component/bookUnit";
-import "../mainExplore.css"
+import "./mainExplore.css"
 import {getBookList} from "../Service/book"
 function MainExplore()
 {

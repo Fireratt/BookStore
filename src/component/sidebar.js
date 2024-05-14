@@ -1,7 +1,7 @@
 import React from "react";
 import SideButton from "./sideButton";
 
-import "../SideBar.css"
+import "./SideBar.css"
 function SideBar(props)
 {
     const lists = props.data?.map((btn)=><SideButton name={btn.name}/>) ; 

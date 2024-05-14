@@ -1,8 +1,8 @@
 import React from "react";
 import removeSpc from "../tools/removeSpc";
 import "./OrderUnit.css"
-import "../Page.css"
 // props consist name , date ,  price , paid 
+import "../View/Page.css"
 function OrderUnit(props)
 {
     const nameWithoutSpc = removeSpc(props.name) ; 

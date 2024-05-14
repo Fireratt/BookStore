@@ -3,8 +3,6 @@ import TopBar from "../component/topBar";
 import removeSpc from "../tools/removeSpc"
 import SideBar from "../component/sidebar";
 import './BookDetail.css' ; 
-import '../TopBar.css' ; 
-import '../SideBar.css' ; 
 import {useLocation} from "react-router-dom"
 import { getPayInfo, submitOrder } from "../Service/pay";
 import { getBook } from "../Service/book"

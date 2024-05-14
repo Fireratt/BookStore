@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Components.css"
-import "../Page.css"
+import "../View/Page.css"
 import ButtonEdit from "./buttonEditText";
 function Location(props)
 {

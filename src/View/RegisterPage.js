@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { register } from "../Service/user";
-import "../Page.css"
+import "./Page.css"
 import './RegisterPage.css'
 import { Navigate, useNavigate } from "react-router-dom";
 const errorMessage = 
