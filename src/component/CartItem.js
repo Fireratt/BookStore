@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../View/Cart.css"
+import { removeCart } from "../Service/cart";
 
 
-function RemoveItem(event)
-{
-    let output = "You are Trying to remove " ; 
-    output = output + event.currentTarget.id ; 
-    alert(output+ ",but Not Support Yet") ; 
-}
+// function RemoveItem(event)
+// {
+//     let output = "You are Trying to remove " ; 
+//     output = output + event.currentTarget.id ; 
+//     alert(output+ ",but Not Support Yet") ; 
+// }
 function CartItem(props)
 {
+    let checkRef = useRef(null) ; 
+    let [show,setShow] = useState(true) ; 
     const book_id = props.bookid
     const src = "/Source/Books/" + props.name + ".jpg" ; 
     const price = props.price ; 
@@ -22,15 +25,38 @@ function CartItem(props)
         // 重新统计总价钱
         props.changeFun() ; 
     }
+    function RemoveItem()
+    {
+        
+        removeCart(book_id).then((Response)=>
+        {
+            if(Response&& Response.State)
+            {
+                checkRef.current.checked = false ; 
+                setShow(false) ; 
+                props.changeFun() ; 
+
+            }
+            else
+            {
+                alert("NetWork Error , Delete Cart Failed") ;
+            }
+        }).catch((err)=>
+        {
+            alert(err) ;
+        })
+    }
     function SubAmount(event)
     {
         if(amount>1)
             setAmount(amount-1) ; 
         props.changeFun() ; 
     }
+    if(!show)
+        return ; 
     return(
         <div id={id} className="CartItem">
-            <input type="checkBox" defaultChecked={props.checked}
+            <input type="checkBox" defaultChecked={props.checked} ref={checkRef}
              className="CartItem_Check" onClick={props.changeFun} data-id={book_id} data-amount={amount}/>
             <img src={src} className="CartItem_Img" alt={props.name}/>
 
