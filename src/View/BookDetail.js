@@ -62,12 +62,16 @@ function BookDetail(props)
     {
         // first get the book's information in the server's paid information ; 
         // must remove the blank in the name 
-        const paidItem = await getPayInfo(removeSpc(bookName)) ; 
+        let ids = [book_id] ; 
+        let amounts = [1] ; 
+        const paidItem = await getPayInfo(ids , amounts) ; 
         // the amount should get from the client . Currently It will be written in the client ; 
         paidItem["Amount"] = 1 ; 
         // Make client confirm the order ; 
         if(window.confirm("请确认订单:\n" + JSON.stringify(paidItem)))
+        {
             submitOrder(paidItem) ; 
+        }
     }
     function handleAddCart()
     {

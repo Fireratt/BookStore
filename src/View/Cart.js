@@ -6,10 +6,33 @@ import "./Cart.css" ;
 import "./Page.css" ; 
 import CartItem from "../component/CartItem";
 import { getCartList } from "../Service/cart";
-function processingPay(event)
+import { getPayInfo } from "../Service/pay";
+import { submitOrder } from "../Service/pay";
+async function processingPay(event)
 {
-    const value = document.getElementById("Cart_Total").dataset.total ; 
-    alert("You have paid " + value + "元") ; 
+    // const value = document.getElementById("Cart_Total").dataset.total ; 
+    // alert("You have paid " + value + "元") ; 
+    let payItems = []; 
+    let itemAmounts = [] ; 
+    let checkedItems = document.getElementsByClassName("CartItem_Check") ; 
+    for(let i = 0 ; i < checkedItems.length ; i++)
+    {
+        if(checkedItems[i].checked)
+        {
+            console.log("processingPay get book:", checkedItems[i].dataset.id , checkedItems[i].dataset.amount )
+            payItems.push(checkedItems[i].dataset.id
+            ) ; 
+            itemAmounts.push(checkedItems[i].dataset.amount) ; 
+        }
+    }
+    let payInfo = await getPayInfo(payItems , itemAmounts) ; 
+    let orderToConfirm = payInfo ; 
+    console.log(JSON.stringify(payInfo)) ; 
+    if(window.confirm("Confirm Order:\n" + JSON.stringify(payInfo)))
+    {
+        submitOrder(payInfo) ; 
+    }
+    
 }
 function CartPage(props)
 {
@@ -63,8 +86,8 @@ function CartPage(props)
                 <p id="Cart_PageEnd"> </p>
                 <p id="Cart_BottomBar"> 
                     <span id="Cart_Total" data-total="0"> 总金额: {sum}元 </span>
-                    <button name="Pay" id="Cart_Pay" onClick={processingPay}> 支付 </button>
-                    <label id = "Cart_PayBtn" htmlFor="Cart_Pay"> 结算 </label>
+                    <button name="Pay" id="Cart_Pay" > 支付 </button>
+                    <label id = "Cart_PayBtn" htmlFor="Cart_Pay" onClick={processingPay}> 结算 </label>
                 </p>
             </div>
         </div>

@@ -10,6 +10,7 @@ function RemoveItem(event)
 }
 function CartItem(props)
 {
+    const book_id = props.bookid
     const src = "/Source/Books/" + props.name + ".jpg" ; 
     const price = props.price ; 
     const id = "CartItem_" + props.name ; 
@@ -29,13 +30,14 @@ function CartItem(props)
     }
     return(
         <div id={id} className="CartItem">
-            <input type="checkBox" defaultChecked={props.checked} className="CartItem_Check" onClick={props.changeFun}/>
+            <input type="checkBox" defaultChecked={props.checked}
+             className="CartItem_Check" onClick={props.changeFun} data-id={book_id} data-amount={amount}/>
             <img src={src} className="CartItem_Img" alt={props.name}/>
 
             <p className="CartItem_Title"> {props.name} </p>
             <div className="CartItem_AmountForm">
                     <span className="CartItem_SubAmount CartItem_OperateAmount" onClick={SubAmount}> - </span>
-                    <span className="CartItem_Amount"> {amount} </span>
+                    <span className="CartItem_Amount" > {amount} </span>
                     <span className="CartItem_AddAmount CartItem_OperateAmount" onClick={AddAmount}> + </span>
             </div>
             <p className="CartItem_Price" data-price={amount * price}> 金额:{amount * price}元 </p>
