@@ -25,8 +25,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LoginFile data={userData}/>}/>
-        <Route path='/explore' element={<Explore data={SideData}/>} />
+        <Route path='/login' element={<LoginFile data={userData}/>}/>
+        <Route path='/' element={<Explore data={SideData}/>} />
         <Route path='/BookDetail/*' element={<BookDetail data={SideData}/>}/>
         <Route path='/Cart' element={<CartPage data={SideData}/>}/>
         <Route path='/Orders' element={<OrderPage data={SideData}/>}/>

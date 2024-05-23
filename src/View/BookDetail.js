@@ -11,10 +11,10 @@ let jsonData = "";
 function initialize(jsonItem, name,nameWithoutSpc)
 {
     // alert(jsonItem) ; 
-    const price = jsonItem['Price'] ; 
-    const description = jsonItem['Description'] ; 
-    const author = jsonItem['Author'] ; 
-    const storage = jsonItem['Storage']
+    const price = jsonItem['price'] ; 
+    const description = jsonItem['description'] ; 
+    const author = jsonItem['author'] ; 
+    const storage = jsonItem['storage']
     const picURL = '/Source/Books/' + nameWithoutSpc + ".jpg"
 // It is bad in REACT frameWork , but it is a calculated state , and the initialize function will calculate it when the state(bookName)change and call useEffect
 // So it is OK to use it I think . 

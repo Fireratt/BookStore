@@ -21,6 +21,5 @@ export async function getPayInfo(book_id , amount)
 // the data should consist of bookname , bookprice , paid , etc 
 export async function submitOrder(data)
 {
-
     return post(BACKEND_URL+ORDER_URL , data) ; 
 }

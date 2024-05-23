@@ -31,6 +31,13 @@ async function processingPay(event)
     if(window.confirm("Confirm Order:\n" + JSON.stringify(payInfo)))
     {
         submitOrder(payInfo) ; 
+        for(let i = 0 ; i < checkedItems.length ; i++)
+        {
+            if(checkedItems[i].checked)
+            {
+            checkedItems[i].parentElement.style.display="none" ;  // set all the processed cartItem invisible
+            }
+        }
     }
     
 }

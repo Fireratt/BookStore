@@ -50,7 +50,7 @@ function LoginFile(props)
                 }
                 else
                 {
-                    navigate('/explore') ; 
+                    navigate('/') ; 
                 }
             }
         ) ; 

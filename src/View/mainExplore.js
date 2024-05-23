@@ -11,7 +11,7 @@ function MainExplore()
         getBookList().then((response)=>
         {
             books = response ; 
-            booksInput =  books?.map((book)=><BookUnit id = {book.Book_Id} BookName={book.Name} BookPrice={book.Price}/>) ; 
+            booksInput =  books?.map((book)=><BookUnit id = {book.bookId} BookName={book.name} BookPrice={book.price}/>) ; 
             setBooksInput(booksInput) ;         // trigger redraw.
             console.log(books) ; 
         }).catch((err)=>
