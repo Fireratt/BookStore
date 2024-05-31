@@ -74,7 +74,7 @@
     cursor: pointer;
 }
 
-#Information_SideBar
+#Information_SideBar,.Page_SideBar
 {
     position: absolute ;
     left: 0;
@@ -87,7 +87,7 @@
     height: auto;
 }
 
-#Information_View
+#Information_View,.Page_View
 {
     position: absolute;
     left:20% ; 
@@ -95,7 +95,7 @@
 
 }
 
-.Information_SideBtn
+.Page_SideBtn
 {
     height: 50px ; 
     line-height: 50px;
@@ -111,10 +111,14 @@
 .EditableText
 {
     padding-left: 10%;
+    margin: 0;
     font-size: medium ; 
     font-family: Microsoft Yahei ,STXihei;
 }
-
+.EditableText_P
+{
+    margin: 0;
+}
 .EditableText_Edit
 {
     font-size: medium;
@@ -122,6 +126,9 @@
     margin-block-end: calc(1em - 1px );
     font-family: Microsoft Yahei ,STXihei;
     border: 1px solid black;
+
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .Information_Tag
@@ -197,4 +204,70 @@
     color: red;
     font-family: Microsoft Yahei ,STXihei;
     font-weight: bold;
+}
+
+.PageSearchBar
+{
+    width: 30%;
+    height: 40px;
+    margin-left: 35%;
+
+    position: relative ;
+    top: -50px;
+
+    border: solid grey 1px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.PageSearchBar_Input
+{
+    padding-left: 5%;
+    outline:none ;   
+    border: none ;
+    width: 75%;
+
+    font-size: large;
+    line-height: 40px;
+}
+
+.PageSearchBar_Submit
+{
+
+    background-color: aliceblue;
+    float: right;
+    width: 15%;
+    height: 40px;
+
+    line-height: 40px;
+    text-align: center;
+
+    font-weight: bolder;
+    color: black;
+}
+
+.Page_RightTopBtn
+{
+    float: right;
+    width: 10%;
+    margin-right: 10%;
+
+    position: relative;
+    top:-100px;
+
+    height: 50px;
+    border: solid black 1px;
+    border-radius: 5px;
+
+    line-height: 50px;
+    font-weight: bolder;
+    text-align: center;
+
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.FileInput
+{
+    display: none;
 }

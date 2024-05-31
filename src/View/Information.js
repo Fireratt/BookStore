@@ -44,16 +44,16 @@ function InformationPage(props)
                     {displaying===3 && "售后服务"} 
                 </p>
                 <div id = "Information_SideBar">
-                    <div id = "Information_Basic" className="Information_SideBtn" onClick={()=>setDisplaying(0)}>   
+                    <div id = "Information_Basic" className="Page_SideBtn" onClick={()=>setDisplaying(0)}>   
                         基本信息
                     </div>
-                    <div id = "Information_ChangePwd" className="Information_SideBtn" onClick={()=>setDisplaying(1)}>
+                    <div id = "Information_ChangePwd" className="Page_SideBtn" onClick={()=>setDisplaying(1)}>
                         修改密码
                     </div>
-                    <div id = "Information_Location" className="Information_SideBtn" onClick={()=>setDisplaying(2)}>
+                    <div id = "Information_Location" className="Page_SideBtn" onClick={()=>setDisplaying(2)}>
                         地址管理
                     </div>
-                    <div id = "Information_AfterService" className="Information_SideBtn" onClick={()=>setDisplaying(3)}>
+                    <div id = "Information_AfterService" className="Page_SideBtn" onClick={()=>setDisplaying(3)}>
                         售后服务
                     </div>
                 </div>

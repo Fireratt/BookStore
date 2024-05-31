@@ -9,7 +9,23 @@ export async function getJson(url)
     } 
     return response.json() ;            // return the promise 
 }
-
+export async function postRaw(url , data)
+{
+    const response = await fetch(url ,
+        {
+            method : "POST", 
+            credentials : "include" ,
+            headers :{
+                "Content-Type" : "application/json" 
+            },
+            body : data
+        })
+        if(!isLogin(response))
+        {
+            return null ; 
+        } 
+        return response.json() ;
+}
 export async function post(url , data)
 {
     const response = await fetch(url ,
@@ -70,6 +86,7 @@ export async function isLogin(response)
     if(response.status == 401)
     {
         // redirect to the login page , instead of read the server's redirect
+        alert("You have not logged in yet , Returning to the login page...") ; 
         window.location.href = ("/login") ; 
         return false ; 
     }else

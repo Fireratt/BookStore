@@ -50,6 +50,7 @@ function LoginFile(props)
                 }
                 else
                 {
+                    window.sessionStorage.setItem("Administrator" , response.Administrator) ; 
                     navigate('/') ; 
                 }
             }

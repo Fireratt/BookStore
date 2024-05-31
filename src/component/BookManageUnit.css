@@ -1,0 +1,63 @@
+.BookManageUnit
+{
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+    height: 150px;
+
+    background-color: aliceblue;
+    border: black solid 1px;
+
+    border-radius: 15px;
+    padding-left: 3%;
+    padding-top: 10px;
+
+    margin-bottom: 30px;
+}
+
+.BookManageUnit_Text
+{
+    width: 50%;
+    padding-left: 0;
+    display: block;
+}
+
+.BookManageUnit_TextBlock
+{
+    display: block;
+    position: relative;
+    left:20% ; 
+    top:25px ; 
+    width: 30%;
+    height: 100px;
+    margin-left: 2%;
+    float: left;
+}
+
+.BookManageUnit_Cover
+{
+    float: left;
+    display: block;
+    width: 10%;
+    height: 100px;
+    margin-top: 15px;
+}
+
+.BookManageUnit_Cover_Filter
+{
+    line-height: 100px;
+}
+
+.BookManageUnit_Commit
+{
+    display: block;
+    width: 10%;
+    position: relative;
+    top: -70px;
+    right: 0px;
+    clear: both;
+    /* float: right; */
+
+    background-color: white;
+
+}

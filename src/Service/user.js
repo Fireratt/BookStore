@@ -1,8 +1,9 @@
 import { put , getJson,post,BACKEND_URL } from "./common";
 const USER_URL="/user"
+const REG_URL = "/register"
 export async function register(data)
 {
-    let url = BACKEND_URL + USER_URL ; 
+    let url = BACKEND_URL + REG_URL ; 
     return put(url , data) ;
 }
 

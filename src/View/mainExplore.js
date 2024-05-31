@@ -2,6 +2,7 @@ import {React , useEffect, useState} from "react";
 import BookUnit from "../component/bookUnit";
 import "./mainExplore.css"
 import {getBookList} from "../Service/book"
+import { useLocation } from "react-router-dom";
 function MainExplore()
 {
     let [booksInput,setBooksInput] = useState(false) ; 
@@ -10,8 +11,9 @@ function MainExplore()
     {
         getBookList().then((response)=>
         {
+            console.log(response) ; 
             books = response ; 
-            booksInput =  books?.map((book)=><BookUnit id = {book.bookId} BookName={book.name} BookPrice={book.price}/>) ; 
+            booksInput =  books?.map((book)=><BookUnit id = {book.bookId} BookName={book.Name} BookPrice={book.Price}/>) ; 
             setBooksInput(booksInput) ;         // trigger redraw.
             console.log(books) ; 
         }).catch((err)=>

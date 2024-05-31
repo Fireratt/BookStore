@@ -1,12 +1,19 @@
 import React from "react";
 import "./TopBar.css"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 function TopBar()
 {
+    let isAdministrator = window.sessionStorage.getItem("Administrator") == "1" ; 
+    let navigate = useNavigate() ;  
+    function handleManagerClick()       // to handle the navigate to the administrator page
+    {
+        navigate("/administrator") ;
+    }
+    console.log(window.sessionStorage.getItem("Administrator") ) ; 
     return(
         <div id="TopBar">
             <p>
-            <img id="Settings" src="/Source/Setting.png" alt="Settings" className="TopButton"/>
+            { isAdministrator && <img id="Settings" src="/Source/Setting.png" alt="Settings" className="TopButton" onClick={handleManagerClick}/>}
             <Link to="/Information">
                 <img id="HeadPortrait" src="/Source/HeadPortrait.png" alt="My head" className="TopButton"/>
             </Link>

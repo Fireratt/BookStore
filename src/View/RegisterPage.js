@@ -8,7 +8,8 @@ const errorMessage =
     "用户名不能为空" ,
     "密码不能为空" ,
     "输入的密码与前一次不一致" ,
-    "邮箱地址中必须包含@" 
+    "邮箱地址中必须包含@"  ,
+    "用户名与其他用户重复，请更换" 
 ]
 export default function RegisterPage(props)
 {   
@@ -53,7 +54,17 @@ export default function RegisterPage(props)
             password:password
         }).then((Response)=>
         {
-            navigate("/") ; 
+            console.log(Response.State) ; 
+            if(Response.State == "Duplicate")
+            {
+                setError(4) ; 
+                return ; 
+            }
+            if(Response.State == "Success")
+            {
+                alert("注册成功， 返回登陆界面...") ; 
+                navigate("/login") ; 
+            }
         })
         .catch((err)=>
         {
@@ -65,6 +76,7 @@ export default function RegisterPage(props)
             <p className="Page_Title"> 注册 </p>
             <div id="register_ContentBlock">
                 {error === 0 && <p className="warning"> {errorMessage[0]} </p>}
+                {error === 4 && <p className="warning"> {errorMessage[error]} </p>}
                 <input className="Information_InputForm registerPage_InputForm" type="Text" placeholder="用户名" ref={usernameRef}/>
                 {error === 1 && <p className="warning"> {errorMessage[error]} </p>}
                 <input className="Information_InputForm registerPage_InputForm" type="Password" placeholder="密码" ref={passwordRef}/>

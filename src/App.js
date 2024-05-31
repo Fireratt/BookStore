@@ -8,6 +8,8 @@ import CartPage from './View/Cart';
 import OrderPage from './View/Order';
 import InformationPage from './View/Information';
 import RegisterPage from './View/RegisterPage';
+import Administrator from './View/Administrator';
+import BookAdd from './View/BookAdd';
 const SideData = [
   {name : "热门好书"} , 
   {name : "最新上市"} , 
@@ -32,6 +34,8 @@ function App() {
         <Route path='/Orders' element={<OrderPage data={SideData}/>}/>
         <Route path='/Information' element={<InformationPage data={SideData}/>}/>
         <Route path='/Register' element={<RegisterPage/>}/>
+        <Route path='/Administrator' element={<Administrator data={SideData}/>}/>
+        <Route path='/AddBook' element={<BookAdd data={SideData}/>}/>
       </Routes>
     </BrowserRouter>
   );
