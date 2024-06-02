@@ -55,6 +55,7 @@
 }
 #SearchBtn
 {
+    outline: none;
     float: right;
     position: absolute;
     left: 100%;

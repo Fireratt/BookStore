@@ -10,6 +10,7 @@ import InformationPage from './View/Information';
 import RegisterPage from './View/RegisterPage';
 import Administrator from './View/Administrator';
 import BookAdd from './View/BookAdd';
+import SearchResult from './View/SearchResult';
 const SideData = [
   {name : "热门好书"} , 
   {name : "最新上市"} , 
@@ -36,6 +37,7 @@ function App() {
         <Route path='/Register' element={<RegisterPage/>}/>
         <Route path='/Administrator' element={<Administrator data={SideData}/>}/>
         <Route path='/AddBook' element={<BookAdd data={SideData}/>}/>
+        <Route path='/SearchResult' element={<SearchResult data={SideData}/>}/>
       </Routes>
     </BrowserRouter>
   );

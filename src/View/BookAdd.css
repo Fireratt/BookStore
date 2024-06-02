@@ -1,0 +1,46 @@
+.BookAdd_Cover
+{
+    display: block;
+    position: relative;
+    left: 5%;
+    top : 50px ; 
+    width: 15%;
+    height: 250px;
+    float: left;
+}
+
+.BookAdd_Cover_Filter
+{
+    line-height: 225px;
+}
+
+.BookAdd_TextBlock
+{
+    width: 70%;
+    float: right;
+
+    position: relative;
+    padding-left: 10%;
+}
+
+.BookAdd_Btn
+{
+    float: right;
+
+    position: relative;
+
+    right: 20%;
+    bottom: -75px;
+
+    font-size: large;
+    font-weight: bolder;
+
+    border: 1px solid black;
+}
+
+.BookAdd_Warning
+{
+    position: relative;
+
+    left: -10%;
+}

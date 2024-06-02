@@ -18,7 +18,7 @@ export default function BookManage(props)
             setUnits([]) ; 
             units = result?.map(
                 (resultData)=>
-                <BookManageUnit author = {resultData.author}
+                <BookManageUnit author = {resultData.author} isbn={resultData.isbn}
                     name = {resultData.name} storage = {resultData.storage} id = {resultData.bookId} cover ={resultData.cover}/>
             )
             console.log(units) ;

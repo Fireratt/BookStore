@@ -8,7 +8,7 @@ const errorMessage =
     "用户名不能为空" ,
     "密码不能为空" ,
     "输入的密码与前一次不一致" ,
-    "邮箱地址中必须包含@"  ,
+    "邮箱格式不正确"  ,
     "用户名与其他用户重复，请更换" 
 ]
 export default function RegisterPage(props)
@@ -83,7 +83,7 @@ export default function RegisterPage(props)
                 {error === 2 && <p className="warning"> {errorMessage[error]} </p>}
                 <input className="Information_InputForm registerPage_InputForm"  type="Password" placeholder="请重复密码" ref={repeatRef}/>
                 {error === 3 && <p className="warning"> {errorMessage[error]} </p>}
-                <input className="Information_InputForm registerPage_InputForm"  type="Mail" placeholder="请输入邮箱" ref={mailRef}/>
+                <input className="Information_InputForm registerPage_InputForm"  type="email" placeholder="请输入邮箱" ref={mailRef}/>
                 <label className="Page_Btn registerPage_Btn" onClick={handleRegister}> 注册！ </label>
             </div>
         </div>

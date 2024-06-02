@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./TopBar.css"
 import {Link, useNavigate} from "react-router-dom"
 function TopBar()
@@ -8,6 +8,13 @@ function TopBar()
     function handleManagerClick()       // to handle the navigate to the administrator page
     {
         navigate("/administrator") ;
+    }
+    let queryRef=  useRef(null) ; 
+    function handleSearch()
+    {
+        let query = queryRef.current.value ;
+        console.log("TopBar", query) ; 
+        navigate("/SearchResult" , {state:{query:query}}) ; 
     }
     console.log(window.sessionStorage.getItem("Administrator") ) ; 
     return(
@@ -26,8 +33,8 @@ function TopBar()
             <Link to="/Orders" className="TopTextBar" > 订单 </Link>
             <form id="SearchInput">
                 <p>
-                    <input id="SearchBar" type="text" placeholder="搜索"/>
-                    <input type="submit" id="SearchBtn" value=""/>
+                    <input id="SearchBar" type="text" placeholder="搜索" ref={queryRef}/>
+                    <input type="button" id="SearchBtn" value="" onClick={handleSearch}/>
                 </p>
             </form>
             </p>

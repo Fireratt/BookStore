@@ -10,7 +10,6 @@ export function toBase64(file)
     fileReader.readAsDataURL(file) ; 
     fileReader.onload = function()
     {
-        console.log(fileReader.result) ; 
         resolve(fileReader.result)
     }
     })

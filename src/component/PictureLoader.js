@@ -7,6 +7,7 @@ export default function PictureLoader(props)
     let classname = "PictureLoader " + props.className ; 
     let FilterClassName = "PictureLoader_Filter " + props.className + "_Filter"; 
     let For = props.for ; 
+    let havePic = props.pic!="" ; 
     function hover()
     {
         setState(true) ; 
@@ -17,8 +18,8 @@ export default function PictureLoader(props)
     }
     return(
         <label className={classname} onMouseEnter={hover} onMouseLeave={leave} htmlFor={For}>
-            {state && <div className={FilterClassName}> {usage} </div>}
-            <img className="PictureLoader_Pic" src={props.pic}/> 
+            {(state||!havePic) && <div className={FilterClassName}> {usage} </div>}
+            {havePic &&<img className="PictureLoader_Pic" src={props.pic}/> }
         </label>
     )
 }

@@ -3,12 +3,13 @@ import EditableText from "./editableText";
 import "./BookManageUnit.css"
 import "../View/Page.css"
 import PictureLoader from "./PictureLoader";
-import { Admin_ChangeBook } from "../Service/administrator";
+import { Admin_ChangeBook, Admin_DeleteBook } from "../Service/administrator";
 import { toBase64 } from "../tools/fileOperator";
 let TableHeaders = [
     "书名：" ,
     "作者：" ,
-    "库存："
+    "库存：" ,
+    "ISBN: "
 ]
 export default function BookManageUnit(props)
 {
@@ -17,27 +18,33 @@ export default function BookManageUnit(props)
     let [author, setAuthor] = useState(props.author) ; 
     let [storage , setStorage] = useState(props.storage) ; 
     let [cover,setCover] = useState(props.cover) ; 
+    let [isbn , setIsbn] = useState(props.isbn)
     let picRef = useRef(null) ; 
     let inputId = book_id + "_CoverInput" ; 
     let pictureString = null; 
     async function handleEdit()
     {
-        // let pictureNum = picRef.current.files.length; 
-        // let picture = null;
-        // if(pictureNum >= 1)
-        // {
-        //     picture = picRef.current.files[0] ; 
-        // }
         let data = {book_id : book_id , cover: pictureString, name:bookName , author:author ,storage: storage} ; 
-        console.log(data) ; 
         let result = await Admin_ChangeBook(data) ; 
-        console.log(result,  "Status:" , result.status) ; 
+        if(result.state)
+        {
+            alert("修改成功") ;
+        }
+        else{
+            alert("修改失败")
+        }
     }
     async function handleNewPic()
     {
-        console.log("Trigger HandleNewPic") ; 
         pictureString = await toBase64(picRef.current.files[0]) ; 
         setCover(pictureString) ; 
+    }
+    async function handleDelete()
+    {
+        if(window.confirm(`确定要移除${bookName}吗？（将会暂停该书籍在页面中的显示）`)) 
+        {
+            Admin_DeleteBook(book_id) ; 
+        }   
     }
     useEffect(()=>
     {
@@ -46,6 +53,7 @@ export default function BookManageUnit(props)
         setStorage(props.storage) ; 
         setAuthor(props.author) ; 
         setCover(props.cover) ; 
+        setIsbn(props.isbn) ; 
 
     },[props.id])
     return(
@@ -58,10 +66,15 @@ export default function BookManageUnit(props)
             </div>
             <div className="BookManageUnit_TextBlock">
                 <span className="BookManageUnit_Text">{TableHeaders[2]}  <EditableText content={storage} valueHook={setStorage}/> </span>
+                <span className="BookManageUnit_Text">{TableHeaders[3]}  <EditableText content={isbn} valueHook={setIsbn}/> </span>
             </div>
 
             <label onClick={handleEdit} className="Page_RightTopBtn BookManageUnit_Commit"> 
                 提交修改
+            </label>
+
+            <label onClick={handleDelete} className="Page_RightTopBtn BookManageUnit_Commit BookManageUnit_Delete"> 
+                移除此书
             </label>
         </div>
     )

@@ -53,11 +53,18 @@
     display: block;
     width: 10%;
     position: relative;
-    top: -70px;
+    top: -80px;
     right: 0px;
     clear: both;
     /* float: right; */
 
     background-color: white;
+    margin-bottom: 10px;
+
+}
+
+.BookManageUnit_Delete
+{
+    background-color: pink;
 
 }
