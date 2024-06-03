@@ -4,6 +4,7 @@ let Navigate ;
 
 function BookUnit(props)    //With the props::BookName , BookUrl , BookPrice
 {
+    const cover = props.cover ; 
     const book_id = props.id ; 
     const BookPrice = props.BookPrice + "元" ; 
     const iUrl = "/Source/Books/" + 
@@ -20,7 +21,7 @@ function BookUnit(props)    //With the props::BookName , BookUrl , BookPrice
     }
     return(
         <div className="BookUnit" id = {props.BookName} onClick={openBook}>
-            <img src={iUrl} alt={props.BookName} className="BookImg" />
+            <img src={cover} alt={props.BookName} className="BookImg" />
             <p className="BookName"> {props.BookName}</p>
             <p className="BookPrice"> {BookPrice}</p>
         </div>

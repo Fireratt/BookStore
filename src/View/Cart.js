@@ -30,20 +30,29 @@ async function processingPay(event)
     console.log(JSON.stringify(payInfo)) ; 
     if(window.confirm("Confirm Order:\n" + JSON.stringify(payInfo)))
     {
-        submitOrder(payInfo) ; 
-        for(let i = 0 ; i < checkedItems.length ; i++)
+        let response = await submitOrder(payInfo) ; 
+        if(response.Success == "true")
         {
-            if(checkedItems[i].checked)
+            alert("购买成功") ;
+            for(let i = 0 ; i < checkedItems.length ; i++)
             {
-            checkedItems[i].parentElement.style.display="none" ;  // set all the processed cartItem invisible
+                if(checkedItems[i].checked)
+                {
+                checkedItems[i].parentElement.style.display="none" ;  // set all the processed cartItem invisible
+                }
             }
         }
+        else
+        {
+            alert("购买失败：原因：" + response.reason) ; 
+        }
+
     }
     
 }
 function CartPage(props)
 {
-    const [sum,setSum] = useState(0) ; 
+    let [sum,setSum] = useState(0) ; 
     const CalcPrice = (event)=>
     {
         const Items = document.getElementsByClassName("CartItem") ; 
@@ -55,7 +64,8 @@ function CartPage(props)
                 summ += parseFloat(i.getElementsByClassName("CartItem_Price")[0].dataset.price) ; 
             }
         }
-        setSum(summ) ; 
+        sum = summ ; 
+        setSum(sum) ; 
     }
     let [bookList,setList] = useState([]) ; 
     let [bookComponents,setComponents] = useState([]) ; 
@@ -69,12 +79,12 @@ function CartPage(props)
                     bookList = Response ; 
                     setList(bookList) ; 
                     bookComponents = bookList?.map((unit)=>
-                        <CartItem bookid={unit.bookId} name={unit.bookName} price={unit.bookPrice} checked={false} changeFun = {CalcPrice}/>
+                        <CartItem bookid={unit.bookId} name={unit.bookName} price={unit.bookPrice} checked={false} changeFun = {CalcPrice} src={unit.cover}/>
                     ) ; 
                     setComponents(bookComponents) ; 
                     console.log("BookList:",bookComponents) ; 
                 }
-            )
+            ) 
         } , [])
     return(
         <div>
@@ -92,7 +102,7 @@ function CartPage(props)
                 { bookComponents }
                 <p id="Cart_PageEnd"> </p>
                 <p id="Cart_BottomBar"> 
-                    <span id="Cart_Total" data-total="0"> 总金额: {sum}元 </span>
+                    <span id="Cart_Total" data-total="0"> 总金额: {sum} 元 </span>
                     <button name="Pay" id="Cart_Pay" > 支付 </button>
                     <label id = "Cart_PayBtn" htmlFor="Cart_Pay" onClick={processingPay}> 结算 </label>
                 </p>

@@ -4,7 +4,8 @@ import SideBar from "../component/sidebar";
 import OrderUnit from "../component/OrderUnit";
 import "./Page.css" ; 
 import "./Order.css"
-import { getOrderList, searchOrder, selectOrderByTime } from "../Service/order";
+import { countOrder, getOrderList, searchOrder, selectOrderByTime } from "../Service/order";
+import OrderStatistic from "../component/OrderStatistic";
 
 function OrderPage(props)
 {
@@ -14,6 +15,8 @@ function OrderPage(props)
     let queryRef = useRef(null) ; 
     let startRef = useRef(null) ; 
     let endRef = useRef(null) ; 
+    let [showStatistic,setStatistic] = useState(false) ; 
+    let [statistic,setStatisticData] = useState(null) ; 
     useEffect(()=>
     {
         getOrderList().then(
@@ -25,7 +28,7 @@ function OrderPage(props)
                 setOrderList(data?.map((unit)=><OrderUnit items = {unit.orderItems} 
                 price = {unit.totalPrice} 
                 date = {unit.date}  
-                code = {unit.order_id}
+                code = {unit.orderId}
                 />)) ; 
             }
         ).catch((err)=>
@@ -54,6 +57,8 @@ function OrderPage(props)
         {
             console.log(err) ; 
         })
+        setStatistic(false) ; 
+
     }
     function handleSearch(event)
     {
@@ -66,14 +71,34 @@ function OrderPage(props)
                 setOrderList(data?.map((unit)=><OrderUnit items = {unit.orderItems} 
                 price = {unit.totalPrice} 
                 date = {unit.date}  
-                code = {unit.order_id}
+                code = {unit.orderId}
                 />)) ; 
             }
         ).catch((err)=>
         {
             console.log(err) ; 
         })
+        setStatistic(false) ; 
 
+    }
+    function handleCount(event)
+    {
+        let startTime = startRef.current.value ; 
+        let endTime = endRef.current.value ; 
+        console.log("Start" , startTime , ",End" , endTime);
+        countOrder(startTime , endTime).then(
+            (response)=>
+            {
+                console.log(response) ; 
+                statistic = response ; 
+                setStatisticData(statistic) ; 
+                setStatistic(true) ; 
+            }
+        ) ; 
+    }
+    function handleReturn(event)
+    {
+        setStatistic(!showStatistic) ; 
     }
     return(
         <div id = "OrderPage">
@@ -88,15 +113,18 @@ function OrderPage(props)
                             <input type="text" id="Order_Search" className = "InPage_Search" placeholder="搜索" ref={queryRef}/>
                             <label  id="Order_SearchBtn" className = "InPage_SearchBtn" onClick={handleSearch}> 搜索！ </label>
                         </div>
+                        {showStatistic&& <label className="Order_Select Page_Btn" onClick={handleReturn}> 返回 </label>}
                         <div className="Order_SelectorBlock">
                             <p className="Line_Title Order_SelectorTitle"> 起始时间 </p>
                             <input type="date" className="Order_Selector Date_Selector" ref={startRef}/> 
                             <p className="Line_Title Order_SelectorTitle"> 终止时间 </p>
                             <input type="date" className="Order_Selector Date_Selector" ref={endRef}/>
                             <label className="Order_Select Page_Btn" onClick={handleSelect}> 按时间筛选 </label>
+                            <label className="Order_Select Page_Btn" onClick={handleCount}> 按时间统计 </label>
                         </div>
                 </form>
-                {OrderList}
+                {!showStatistic && OrderList}
+                {showStatistic && <OrderStatistic data={statistic}/>}
             </div>
         </div>
     )

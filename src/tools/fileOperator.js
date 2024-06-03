@@ -3,7 +3,7 @@ export function toBase64(file)
     return new Promise((resolve , reject)=>{
     if(file == null)
     {
-        return null ; 
+        resolve(null) ; 
     }
     let fileReader = new FileReader() ; 
     let ready ; 

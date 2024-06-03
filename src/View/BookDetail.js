@@ -15,14 +15,16 @@ function initialize(jsonItem, name,nameWithoutSpc)
     const description = jsonItem['description'] ; 
     const author = jsonItem['author'] ; 
     const storage = jsonItem['storage']
-    const picURL = '/Source/Books/' + nameWithoutSpc + ".jpg"
+    const picString = jsonItem['cover'] ; 
+    const isbn = jsonItem['isbn'] ; 
 // It is bad in REACT frameWork , but it is a calculated state , and the initialize function will calculate it when the state(bookName)change and call useEffect
 // So it is OK to use it I think . 
-    document.getElementsByClassName('Detail_Img')[0].src = picURL ; 
+    document.getElementsByClassName('Detail_Img')[0].src = picString ; 
     document.getElementsByClassName('Detail_Storage')[0].textContent = "库存: " + storage ; 
     document.getElementsByClassName('Detail_Price')[0].textContent = price + "￥" ; 
     document.getElementsByClassName('Detail_Description')[0].textContent = description ; 
     document.getElementsByClassName('Detail_Author')[0].textContent = "作者: " + author ; 
+    document.getElementsByClassName('Detail_ISBN')[0].textContent = "ISBN: " + isbn ; 
 
 }
 async function readCookie(bookName , book_id)
@@ -99,7 +101,7 @@ function BookDetail(props)
                 <div className = "Detail_TextPage">
                     <p className="Detail_Title">{bookName} </p>
                     <p className="Detail_Author Detail_Text"></p>
-
+                    <p className="Detail_ISBN Detail_Text"></p>
                     <p className="Detail_PriceLine Detail_Text">
                         <span> 定价： </span>
                         <span className="Detail_Price"> </span>

@@ -9,7 +9,8 @@ let TableHeaders = [
     "书名：" ,
     "作者：" ,
     "库存：" ,
-    "ISBN: "
+    "ISBN: " ,
+    "价格: "
 ]
 export default function BookManageUnit(props)
 {
@@ -18,12 +19,15 @@ export default function BookManageUnit(props)
     let [author, setAuthor] = useState(props.author) ; 
     let [storage , setStorage] = useState(props.storage) ; 
     let [cover,setCover] = useState(props.cover) ; 
-    let [isbn , setIsbn] = useState(props.isbn)
+    let [isbn , setIsbn] = useState(props.isbn) ; 
+    let [price, setPrice] = useState(props.price) ; 
     let picRef = useRef(null) ; 
     let inputId = book_id + "_CoverInput" ; 
     let pictureString = null; 
     async function handleEdit()
     {
+        console.log("handleEdit") ; 
+        pictureString = await toBase64(picRef.current.files[0]) ; 
         let data = {book_id : book_id , cover: pictureString, name:bookName , author:author ,storage: storage} ; 
         let result = await Admin_ChangeBook(data) ; 
         if(result.state)
@@ -54,6 +58,7 @@ export default function BookManageUnit(props)
         setAuthor(props.author) ; 
         setCover(props.cover) ; 
         setIsbn(props.isbn) ; 
+        setPrice(props.price) ; 
 
     },[props.id])
     return(
@@ -67,6 +72,7 @@ export default function BookManageUnit(props)
             <div className="BookManageUnit_TextBlock">
                 <span className="BookManageUnit_Text">{TableHeaders[2]}  <EditableText content={storage} valueHook={setStorage}/> </span>
                 <span className="BookManageUnit_Text">{TableHeaders[3]}  <EditableText content={isbn} valueHook={setIsbn}/> </span>
+                <span className="BookManageUnit_Text">{TableHeaders[4]}  <EditableText content={price} valueHook={setPrice}/> </span>
             </div>
 
             <label onClick={handleEdit} className="Page_RightTopBtn BookManageUnit_Commit"> 

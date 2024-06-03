@@ -13,7 +13,7 @@ function MainExplore()
         {
             console.log(response) ; 
             books = response ; 
-            booksInput =  books?.map((book)=><BookUnit id = {book.bookId} BookName={book.Name} BookPrice={book.Price}/>) ; 
+            booksInput =  books?.map((book)=><BookUnit id = {book.bookId} BookName={book.Name} BookPrice={book.Price} cover={book.cover}/>) ; 
             setBooksInput(booksInput) ;         // trigger redraw.
             console.log(books) ; 
         }).catch((err)=>

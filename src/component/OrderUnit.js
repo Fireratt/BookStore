@@ -13,7 +13,7 @@ function OrderUnit(props)
     let bookLineList = itemLists?.map((units)=><OrderBookLine name={units.bookName} amount={units.amount}/>)
     return(
         <div id = {props.code} className="OrderUnit">
-            <img className="OrderUnit_Pic" src={picSource} alt = {nameWithoutSpc}/>
+            {/* <img className="OrderUnit_Pic" src={picSource} alt = {nameWithoutSpc}/> */}
             <p className="OrderUnit_Head">
                 <span className="OrderUnit_Date"> {props.date} </span>
                 <span className="OrderUnit_OrderCode"> 订单编号：{props.code} </span>
