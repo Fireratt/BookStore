@@ -67,3 +67,12 @@
     font-size: larger ;
     letter-spacing: 3px ;
 }
+
+.MainExplore_Pagination
+{
+    clear: both;
+    position: relative;
+    width: 30%;
+    left:43% ; 
+    top: 100px;
+}

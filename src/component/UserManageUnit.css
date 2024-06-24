@@ -1,0 +1,39 @@
+.UserManageUnit
+{
+    width: 95% ;
+    height:100px ; 
+    background-color: aliceblue ;
+
+    margin-top: 10px ;
+}
+
+.UserManageUnit_Text
+{
+    position: relative;
+    top: 0px;
+}
+.UserManageUnit_TextBlock
+{
+
+    clear: both;
+    width: 80%;
+    float: left;
+}
+.UserManageUnit_Btn
+{
+    float: right;
+    color: white;
+    margin-right: 3%;
+    position: relative;
+    top: 30px;
+}
+
+.UserManageUnit_Ban
+{
+    background-color: red;
+}
+
+.UserManageUnit_UnBan
+{
+    background-color: green;
+}

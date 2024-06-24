@@ -28,7 +28,8 @@ export default function BookManageUnit(props)
     {
         console.log("handleEdit") ; 
         pictureString = await toBase64(picRef.current.files[0]) ; 
-        let data = {book_id : book_id , cover: pictureString, name:bookName , author:author ,storage: storage} ; 
+        let data = {book_id : book_id , cover: pictureString, name:bookName 
+            , author:author ,storage: storage , price:price , isbn:isbn} ; 
         let result = await Admin_ChangeBook(data) ; 
         if(result.state)
         {

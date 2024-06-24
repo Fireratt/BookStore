@@ -11,9 +11,9 @@ export async function getBook(book_id)
     return getJson(url) ; 
 }
 
-export async function getBookList(page = 1)
+export async function getBookList(page = 0)
 {
-    let url = BACKEND_URL + BOOKLIST_URL ;
+    let url = BACKEND_URL + BOOKLIST_URL + `?page=${page}`;
     // pass the url parameter .
     return getJson(url) ; 
 }

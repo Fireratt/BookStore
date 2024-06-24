@@ -14,6 +14,7 @@ export default function BookAdd(props)
 {
     // when go into this page from the manager page properly , it will show the status 
     // else it will redirect to the login 
+    
     let [cover,setCover] = useState(null) ; 
     let picRef = useRef(null) ; 
     let [errorMessage,setMessage] = useState("") ; 
@@ -24,7 +25,7 @@ export default function BookAdd(props)
         let picString =await toBase64(picRef.current.files[0]); 
         setCover(picString)
     }
-    function handleSubmit()
+    async function handleSubmit()
     {
         let forms = document.getElementsByClassName("BookAdd_InputForm") ; 
         let data = {};
@@ -40,7 +41,16 @@ export default function BookAdd(props)
         }
         data["description"] = descriptionRef.current.value ; 
         data["cover"] = cover ; 
-        Admin_AddBook(data) ; 
+        let response = await Admin_AddBook(data) ; 
+        if(response.state == "true")
+        {
+            alert("创建成功")
+            window.history.back() ; 
+        }
+        else
+        {
+            alert("创建失败")
+        }
     }
     return(
         <div>

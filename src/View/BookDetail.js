@@ -72,7 +72,16 @@ function BookDetail(props)
         // Make client confirm the order ; 
         if(window.confirm("请确认订单:\n" + JSON.stringify(paidItem)))
         {
-            submitOrder(paidItem) ; 
+            let response = await submitOrder(paidItem) ;
+            console.log(response) 
+            if(response.Success == "true")
+            {
+                alert("购买成功")
+            }
+            else
+            {
+                alert("购买失败，原因："+ response.reason)
+            }
         }
     }
     function handleAddCart()

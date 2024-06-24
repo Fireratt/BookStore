@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import PageSearchBar from "./PageSearchBar";
 import { Admin_SearchBook } from "../Service/administrator";
 import BookManageUnit from "./BookManageUnit";
@@ -9,6 +9,7 @@ export default function BookManage(props)
     let result = [] ; 
     let navigate = useNavigate() ; 
     let [units,setUnits] = useState([]) ; 
+    
     async function search(value)
     {
         try{
@@ -33,7 +34,11 @@ export default function BookManage(props)
     {
         navigate("/addBook") ; 
     }
-
+    // search("")  // show all 
+    useEffect(()=>
+    {
+        search("")
+    },props)
     return(
         <div id = "BookManage">
             <PageSearchBar searchFunction = {search}/>

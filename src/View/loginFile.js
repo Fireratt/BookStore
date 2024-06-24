@@ -4,7 +4,8 @@ import { confirmLogin } from "../Service/login";
 const Notice = [
     "The Account Cant be Empty!" , 
     "The PassWord Cant be Empty!" , 
-    "The Account Invalid or the pwd is WRONG!"
+    "The Account Invalid or the pwd is WRONG!" ,
+    "This Account Is Banned By the Administrator"
 ]
 function LoginFile(props)
 {
@@ -48,10 +49,13 @@ function LoginFile(props)
                 {
                     setError(1) ; 
                 }
-                else
+                else if(response.State == "Success")
                 {
                     window.sessionStorage.setItem("Administrator" , response.Administrator) ; 
                     navigate('/') ; 
+                }else if(response.State == "Rejected")
+                {
+                    setError(2)
                 }
             }
         ) ; 
@@ -89,7 +93,8 @@ function LoginFile(props)
                 <label id = 'SignIn' onClick={handleLogin}> log in! </label>
 
                 </p>
-                {pwdError && <p className="Login_Notice"> {Notice[2]} </p>}
+                {pwdError == 1 && <p className="Login_Notice"> {Notice[2]} </p>}
+                {pwdError == 2  && <p className="Login_Notice"> {Notice[3]} </p>}
                 <Link to="/Register" id="RegisterLink">Register Now!</Link>
                 </form>
             </div>

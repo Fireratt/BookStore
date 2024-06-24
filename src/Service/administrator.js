@@ -2,7 +2,7 @@ import React from "react";
 import { BACKEND_URL,getJson, put , post, postRaw , del} from "./common";
 export const ADMIN_URL = "/administrator" ; 
 export const BOOK_URL = "/book" ; 
-
+export const USER_URL = "/user" ; 
 export async function Admin_SearchBook(bookName)
 {
     let url = BACKEND_URL + ADMIN_URL + BOOK_URL + "?bookname=" + bookName; 
@@ -30,4 +30,17 @@ export async function Admin_DeleteBook(book_id)
         book_id : book_id
     }
     return del(url , body) ; 
+}
+
+export async function Admin_GetUserInfo()
+{
+    let url = BACKEND_URL + ADMIN_URL + USER_URL ; 
+    return getJson(url) ; 
+}
+
+export async function Admin_HandleBan(userId , ban)
+{
+    let url = BACKEND_URL + ADMIN_URL + USER_URL ; 
+    let data = {user_id : userId , ban : ban}
+    return put(url , data) ; 
 }

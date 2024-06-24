@@ -3,6 +3,7 @@ import { register } from "../Service/user";
 import "./Page.css"
 import './RegisterPage.css'
 import { Navigate, useNavigate } from "react-router-dom";
+import { isValidEmail } from "../tools/mail";
 const errorMessage = 
 [
     "用户名不能为空" ,
@@ -12,7 +13,7 @@ const errorMessage =
     "用户名与其他用户重复，请更换" 
 ]
 export default function RegisterPage(props)
-{   
+{
     let navigate = useNavigate() ; 
     let [error,setError] = useState(-1) ;
     let usernameRef = useRef(null) ; 
@@ -43,7 +44,7 @@ export default function RegisterPage(props)
             return ;
         }
         let mail = mailRef.current.value ; 
-        if(mail.indexOf("@")==-1)
+        if(!isValidEmail(mail))
         {
             setError(3) ; 
             return ; 

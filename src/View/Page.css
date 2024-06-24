@@ -296,7 +296,7 @@
 
     border-radius: 30px;
     padding-left: 5%;
-
+    padding-right: 5%;
     border: 1px solid grey;
     resize: none;
 }
