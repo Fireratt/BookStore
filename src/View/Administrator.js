@@ -5,6 +5,7 @@ import "./ContentBlock.css"
 import "./Page.css"
 import BookManage from "../component/BookManage";
 import UserManage from "../component/UserManage";
+import OrderManage from "../component/OrderManage";
 const tags = ["书籍管理" , "用户管理" , "订单管理" ]
 export default function Administrator(props)
 {
@@ -35,6 +36,8 @@ export default function Administrator(props)
                 <div className="Page_View">
                     {displaying===0 && <BookManage/>}
                     {displaying===1 && <UserManage/>}
+                    {displaying===2 && <OrderManage/>}
+
                 </div>
             </div>
         </div>

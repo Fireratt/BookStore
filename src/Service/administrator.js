@@ -3,6 +3,11 @@ import { BACKEND_URL,getJson, put , post, postRaw , del} from "./common";
 export const ADMIN_URL = "/administrator" ; 
 export const BOOK_URL = "/book" ; 
 export const USER_URL = "/user" ; 
+export const ORDER_URL = "/order" ; 
+export const ORDER_SEARCH = "/search"
+export const ORDER_SELECT = "/order/select" ; 
+export const BOOK_SELECT = "/book/select" ; 
+export const USER_SELECT = "/user/select" ; 
 export async function Admin_SearchBook(bookName)
 {
     let url = BACKEND_URL + ADMIN_URL + BOOK_URL + "?bookname=" + bookName; 
@@ -43,4 +48,24 @@ export async function Admin_HandleBan(userId , ban)
     let url = BACKEND_URL + ADMIN_URL + USER_URL ; 
     let data = {user_id : userId , ban : ban}
     return put(url , data) ; 
+}
+
+export async function Admin_GetAllOrder(page)
+{
+    let url = BACKEND_URL + ADMIN_URL + ORDER_URL + `?page=${page}`; 
+    return getJson(url) ;
+}
+
+export async function Admin_searchAllOrder(query , page)
+{
+    let url = BACKEND_URL + ADMIN_URL + ORDER_SEARCH ;
+    url = url + `?page=${page}&query=${query}` 
+    return getJson(url) ; 
+}
+
+export async function Admin_selectAllOrderByDate(start , end , page)
+{
+    let url = BACKEND_URL + ADMIN_URL + ORDER_SEARCH ;
+    url = url + `?page=${page}&start=${start}&end=${end}` ; 
+    return getJson(url) ;  
 }
